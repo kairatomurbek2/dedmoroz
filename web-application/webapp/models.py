@@ -30,6 +30,12 @@ class Letter(models.Model):
     status = models.CharField(choices=STATUS_CHOICES, max_length=2, default='AC', verbose_name=_('Статус'))
     organization = models.ForeignKey(Organization, related_name='letters', blank=True, null=True)
 
+    def image_tag(self):
+        return u'<img src="%s" width="200"/>' % self.image.url
+
+    image_tag.short_description = _('Предварительный просмотр')
+    image_tag.allow_tags = True
+
     class Meta:
         verbose_name = _("Письмо")
         verbose_name_plural = _("Письма")

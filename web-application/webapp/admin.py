@@ -10,6 +10,19 @@ class SantaClausAdmin(admin.ModelAdmin):
     readonly_fields = ('name', 'phone')
 
 
-admin.site.register(Letter)
+class SantaClausInline(admin.TabularInline):
+    model = SantaClaus
+    fields = ['name', 'phone']
+    extra = 0
+
+
+class LetterAdmin(admin.ModelAdmin):
+    list_per_page = 50
+    list_display = ['image_tag', 'status']
+    inlines = [SantaClausInline]
+    list_filter = ['status']
+
+
+admin.site.register(Letter, LetterAdmin)
 admin.site.register(Organization)
 admin.site.register(SantaClaus, SantaClausAdmin)
