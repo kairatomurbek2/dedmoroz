@@ -1,0 +1,39 @@
+{% load i18n staticfiles %}
+{% get_current_language as LANGUAGE_CODE %}
+<!doctype html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {#    <meta property="og:image" content="path/to/image.jpg">#}
+    {#    <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">#}
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <title>Главная</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+</head>
+
+<body>
+
+<header>
+    <div class="">
+
+    </div>
+</header>
+{% block content %}
+
+{% endblock %}
+<footer>
+    <div class="">
+
+    </div>
+</footer>
+
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

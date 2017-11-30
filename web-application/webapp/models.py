@@ -15,7 +15,7 @@ STATUS_CHOICES = (
 class Organization(models.Model):
     name = models.CharField(max_length=150, verbose_name=_('Название организации'))
     street_address = models.CharField(max_length=350, verbose_name=_('Адрес организации'))
-    phone = models.IntegerField(max_length=20, verbose_name=_('Номер телеофна организации'))
+    phone = models.CharField(max_length=180, verbose_name=_('Номер телеофна организации'))
 
     def __str__(self):
         return self.name
