@@ -33,3 +33,16 @@ class Letter(models.Model):
     class Meta:
         verbose_name = _("Письмо")
         verbose_name_plural = _("Письма")
+
+
+class SantaClaus(models.Model):
+    letter = models.ForeignKey(Letter, related_name='santa_clauses')
+    name = models.CharField(max_length=250, verbose_name=_('Имя'))
+    phone = models.CharField(max_length=20, verbose_name=_('Номер телефона'))
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = _("Дед Мороз")
+        verbose_name_plural = _("Дед Морозы")

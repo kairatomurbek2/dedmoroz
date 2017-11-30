@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'sorl.thumbnail',
     'dj_pagination',
+    'widget_tweaks',
     'webapp'
 ]
 

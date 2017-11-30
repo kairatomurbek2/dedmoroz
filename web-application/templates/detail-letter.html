@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load widget_tweaks %}
 {% block content %}
     <section class="inner-page ">
         <div class="uk-container ">
@@ -7,7 +8,7 @@
             <div class="uk-grid" uk-grid>
                 <div class="uk-width-expand@m ">
                     <div class="uk-card uk-card-default">
-{#                        <img src="http://via.placeholder.com/1920x1080" alt="">#}
+                        {#                        <img src="http://via.placeholder.com/1920x1080" alt="">#}
                         <img src="{{ letter.image.url }}" alt="">
                     </div>
                 </div>
@@ -17,28 +18,35 @@
                             <div>
                                 <h3>Стать дедом морозом !</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, ut!</p>
-                                <form>
-{#                                    Спасибо !#}
+                                {% if not letter.santa_clauses.all %}
+                                <form action="{% url 'create_santa' letter.id %}" method="post">
+                                    {% csrf_token %}
+                                    {#                                    Спасибо !#}
                                     <fieldset class="uk-fieldset">
                                         <div class="uk-margin">
-                                            <input class="uk-input" type="text" placeholder="Ваше Имя">
+{#                                            <input class="uk-input" type="text" placeholder="Ваше Имя">#}
+                                            {{ form.name|add_class:"uk-input" }}
                                         </div>
                                         <div class="uk-margin">
-                                            <input class="uk-input" type="number" placeholder="Номер телефона">
+{#                                            <input class="uk-input" type="number" placeholder="Номер телефона">#}
+                                            {{ form.phone|add_class:"uk-input" }}
                                         </div>
                                         <div class="uk-margin">
-                                            <button class="uk-button-default uk-button" type="text">Отправить ребенку
+                                            <button class="uk-button-default uk-button">Помочь ребенку
                                             </button>
                                         </div>
 
                                     </fieldset>
                                 </form>
-                                <div class="border uk-padding">
+                                    {% else %}
+                                    <div class="border uk-padding">
 
-                                    <h3>Спасибо !</h3>
-                                    <p>Lorem ipsum dolor sit amet.</p>
+                                        <h3>Спасибо !</h3>
+                                        <p>К счастью, это письмо уже нашло своего деда мороза! Выберите, пожалуйста, другое письмо. Благодарим.</p>
 
-                                </div>
+                                    </div>
+                                {% endif %}
+
                             </div>
                         </div>
 
