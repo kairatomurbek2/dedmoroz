@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from webapp.models import Letter, Organization
+
+admin.site.register(Letter)
+admin.site.register(Organization)
