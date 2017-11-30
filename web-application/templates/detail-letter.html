@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+    <section class="inner-page ">
+        <div class="uk-container ">
+            <h1 class="uk-margin-large-bottom">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur
+                doloremque in molestias omnis optio quisquam, unde. Hic quo repellendus veniam.</h1>
+            <div class="uk-grid" uk-grid>
+                <div class="uk-width-expand@m ">
+                    <div class="uk-card uk-card-default">
+{#                        <img src="http://via.placeholder.com/1920x1080" alt="">#}
+                        <img src="{{ letter.image.url }}" alt="">
+                    </div>
+                </div>
+                <div class="uk-width-1-3@m">
+                    <div class="uk-card uk-card-default">
+                        <div class="uk-card-media-top uk-text-center uk-padding">
+                            <div>
+                                <h3>Стать дедом морозом !</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, ut!</p>
+                                <form>
+{#                                    Спасибо !#}
+                                    <fieldset class="uk-fieldset">
+                                        <div class="uk-margin">
+                                            <input class="uk-input" type="text" placeholder="Ваше Имя">
+                                        </div>
+                                        <div class="uk-margin">
+                                            <input class="uk-input" type="number" placeholder="Номер телефона">
+                                        </div>
+                                        <div class="uk-margin">
+                                            <button class="uk-button-default uk-button" type="text">Отправить ребенку
+                                            </button>
+                                        </div>
+
+                                    </fieldset>
+                                </form>
+                                <div class="border uk-padding">
+
+                                    <h3>Спасибо !</h3>
+                                    <p>Lorem ipsum dolor sit amet.</p>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
