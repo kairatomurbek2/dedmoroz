@@ -1,12 +1,10 @@
 {% extends 'base.html' %}
 {% load staticfiles thumbnail pagination_tags %}
 {% block content %}
-    <section class="index-page ">
+    <section class="index-page uk-position-relative">
         <div class="uk-container ">
             {% include 'messages.html' %}
-            <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur doloremque in molestias omnis
-                optio
-                quisquam, unde. Hic quo repellendus veniam.</h1>
+            <h1>Данный проект нацелен на помощь нуждающимся детям, осуществить их заветных желаний</h1>
             <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur doloremque in molestias omnis
                 optio
                 quisquam, unde. Hic quo repellendus veniam.</h2>
@@ -34,7 +32,7 @@
             </div>
         </div>
     </section>
-    <section class="message uk-margin-large-top">
+    <section class="message uk-margin-large-top uk-position-relative">
         <div class="uk-container">
             <div class="uk-child-width-1-3@m uk-child-width-1-2@s" uk-grid>
                 {% autopaginate object_list 34 %}
