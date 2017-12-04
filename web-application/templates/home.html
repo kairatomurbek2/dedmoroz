@@ -59,8 +59,15 @@
                                 {% endif %}
                             </div>
                             <div class="uk-card-body uk-text-center">
-                                <a href="{% url 'letter_detail' obj.pk %}" class="uk-button uk-button-default">Помочь
-                                    ребенку</a>
+                                <a href="{% url 'letter_detail' obj.pk %}" class="uk-button uk-button-default">
+                                    {% if obj.status == 'DC' %}
+                                        Дед мороз найден
+                                    {% elif obj.status == 'MD' %}
+                                        Ожидает подтверждения
+                                    {% else %}
+                                        Помочь ребенку
+                                    {% endif %}
+                                </a>
                             </div>
                         </div>
                     </div>

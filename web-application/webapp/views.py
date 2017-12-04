@@ -12,6 +12,7 @@ from webapp.models import Letter, SantaClaus, MODERATION
 class HomeView(ListView):
     template_name = 'home.html'
     model = Letter
+    ordering = '-pk'
 
 
 class DetailLetterView(TemplateView):

@@ -18,12 +18,21 @@
 
 </head>
 
-<body>
-<a href="/"  class="go_to_home uk-position-absolute" style="top: 0;bottom: 0;right: 0;left: 0;"></a>
+<body class="uk-padding-remove-bottom">
+<a href="/" class="go_to_home uk-position-absolute" style="top: 0;bottom: 0;right: 0;left: 0;"></a>
 
 {% block content %}
 
 {% endblock %}
+<footer class="uk-card-secondary ">
+    <div class="uk-container uk-card uk-card-secondary uk-text-center uk-card-default" style="background-color: #222;">
+        <ul class="uk-subnav uk-subnav-line uk-flex-center">
+            <li><a href="http://github.com/uikit/uikit">GitHub</a></li>
+            <li><a href="http://github.com/uikit/uikit/issues">Issues</a></li>
+        </ul>
+        <div class="">проект поддержан тем-то тем-то.</div>
+    </div>
+</footer>
 
 <script src="{% static 'js/main.js' %}"></script>
 <script src="https://yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
