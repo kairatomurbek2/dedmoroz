@@ -1,10 +1,15 @@
 {% extends 'base.html' %}
 {% load staticfiles thumbnail pagination_tags %}
+{% block head %}
+    <meta property="og:title" content="Благотворительная акция Письма Деду Морозу"/>
+{#    <meta property="og:description" content=""/>#}
+{#    <meta property="og:image" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{% static 'img/png/Group.png' %}"/>#}
+{% endblock %}
 {% block content %}
     <section class="index-page uk-position-relative">
         <div class="uk-container ">
             {% include 'messages.html' %}
-            <h1>«Благотворительная акция "Письма Деду Морозу"</h1>
+            <h1>Благотворительная акция "Письма Деду Морозу"</h1>
             <p>помогает устроить праздник детям-сиротам и детям из
                 малоимущих семей, которые также ждут новогоднего чуда и подарков в эту особенную ночь. Поддержать эту
                 традицию и помочь сохранить веру в чудо может каждый из нас, став Дедом Морозом хотя бы для одного
