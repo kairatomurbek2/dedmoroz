@@ -3,9 +3,7 @@
 {% block content %}
     <section class="inner-page uk-position-relative">
         <div class="uk-container ">
-            <h1 class="uk-margin-large-bottom">Данный проект нацелен на помощь нуждающимся детям, осуществить их
-                заветных желаний</h1>
-            <div class="uk-grid" uk-grid>
+           <div class="uk-grid" uk-grid>
                 <div class="uk-width-expand@m ">
                     <div class="uk-card uk-card-default">
                         <img src="{{ letter.image.url }}" alt="">
@@ -17,9 +15,7 @@
                             <div>
                                 <h3>Стать дедом морозом !</h3>
                                 {% if letter.status != 'DC' %}
-                                    <p>Заполните форму для помощи ребенку, мы обязательно свяжемся с Вами и расскажем
-                                        как
-                                        помочь ребенку!</p>
+                                    <p>Заполните форму для обратной связи, мы обязательно перезвоним Вам и расскажем детали</p>
                                 {% endif %}
                                 {% if letter.status != 'DC' %}
                                     <form action="{% url 'create_santa' letter.id %}" method="post">
@@ -32,8 +28,7 @@
                                                 {{ form.phone|add_class:"uk-input" }}
                                             </div>
                                             <div class="uk-margin">
-                                                <button class="uk-button-default uk-button">Помочь ребенку
-                                                </button>
+                                                <button class="uk-button-default uk-button">Стать Дедом Морозом</button>
                                             </div>
 
                                         </fieldset>
