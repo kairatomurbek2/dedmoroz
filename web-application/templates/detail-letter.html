@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load staticfiles widget_tweaks %}
+{% load staticfiles thumbnail widget_tweaks %}
 {% block head %}
     <meta name="title" content="Стань Дед Морозом для нуждающегося ребенка">
     <meta name="description"
@@ -19,7 +19,13 @@
             <div class="uk-grid" uk-grid>
                 <div class="uk-width-expand@m ">
                     <div class="uk-card uk-card-default">
-                        <img src="{{ letter.image.url }}" alt="">
+                        {% if letter.image %}
+                            {% thumbnail letter.image "790x530" as im %}
+                                <img src="{{ im.url }}" alt="">
+                            {% endthumbnail %}
+                        {% else %}
+                            <img src="{% static 'img/no_photo.png' %}" alt="no image">
+                        {% endif %}
                     </div>
                 </div>
                 <div class="uk-width-1-3@m">
