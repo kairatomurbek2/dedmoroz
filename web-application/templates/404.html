@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load staticfiles i18n %}
+{% block head %}
+    <title>Страница не найдена</title>
+{% endblock %}
+{% block content %}
+    <div class="error error-404">
+        <div class="front-container">
+            <p class="error-title">Oops!</p>
+            <div class="img">
+                <img src="{% static 'img/404.png' %}" alt="Page not found">
+            </div>
+            <div class="explaining-text">
+                <p>К сожалению, произошла ошибка,</p>
+                <p>запрашиваемая страница не найдена!</p>
+            </div>
+            <div class="links">
+                <a href="{% url 'home' %}">Домой</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
