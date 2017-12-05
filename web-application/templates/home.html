@@ -1,9 +1,17 @@
 {% extends 'base.html' %}
 {% load staticfiles thumbnail pagination_tags %}
 {% block head %}
-    <meta property="og:title" content="Благотворительная акция Письма Деду Морозу"/>
-{#    <meta property="og:description" content=""/>#}
-    <meta property="og:image" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{% static 'img/socials.png' %}"/>
+    <meta name="title" content="Стань Дед Морозом для детей-сирот">
+    <meta name="description"
+          content="Акция 'Письма Деду Морозу' помогает устроить праздник детям-сиротам и детям из малоимущих семей, которые также ждут новогоднего чуда и подарков в эту особенную ночь.">
+    <meta name="keywords"
+          content="благотворительность, помощь детям-сиротам, малоимущие семьи, помощь, подарки на новый год, акция «дед мороз», дед мороз, письмо деду морозу, благотворительный фонд">
+    <meta property="og:description"
+          content="Акция 'Письма Деду Морозу' помогает устроить праздник детям-сиротам и детям из малоимущих семей, которые также ждут новогоднего чуда и подарков в эту особенную ночь."/>
+    <meta property="og:image"
+          content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{% static 'img/socials.png' %}"/>
+    <meta property="og:title" content="Стань Дед Морозом для детей-сирот"/>
+    <title>Стань Дед Морозом для детей-сирот</title>
 {% endblock %}
 {% block content %}
     <section class="index-page uk-position-relative">

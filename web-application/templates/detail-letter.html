@@ -1,9 +1,22 @@
 {% extends 'base.html' %}
-{% load widget_tweaks %}
+{% load staticfiles widget_tweaks %}
+{% block head %}
+    <meta name="title" content="Стань Дед Морозом для нуждающегося ребенка">
+    <meta name="description"
+          content="На этой сайте собраны письма ребят из различных детских домов, школ-интернатов и центров Кыргызстана, и Вы можете выбрать одно или несколько из них.">
+    <meta name="keywords"
+          content=" помощь сиротам, помощь малоимущим семьям, новогодняя акция, письмо Деду Морозу, подарки на новый год, стать героем">
+    <meta property="og:title" content="Стань Дед Морозом для нуждающегося ребенка"/>
+    <meta property="og:description"
+          content="На этой сайте собраны письма ребят из различных детских домов, школ-интернатов и центров Кыргызстана, и Вы можете выбрать одно или несколько из них."/>
+    <meta property="og:image"
+          content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{% static 'img/socials.png' %}"/>
+    <title>Стань Дед Морозом для детей-сирот</title>
+{% endblock %}
 {% block content %}
     <section class="inner-page uk-position-relative">
         <div class="uk-container ">
-           <div class="uk-grid" uk-grid>
+            <div class="uk-grid" uk-grid>
                 <div class="uk-width-expand@m ">
                     <div class="uk-card uk-card-default">
                         <img src="{{ letter.image.url }}" alt="">
@@ -15,7 +28,8 @@
                             <div>
                                 <h3>Стать дедом морозом !</h3>
                                 {% if letter.status != 'DC' %}
-                                    <p>Заполните форму для обратной связи, мы обязательно перезвоним Вам и расскажем детали</p>
+                                    <p>Заполните форму для обратной связи, мы обязательно перезвоним Вам и расскажем
+                                        детали</p>
                                 {% endif %}
                                 {% if letter.status != 'DC' %}
                                     <form action="{% url 'create_santa' letter.id %}" method="post">
