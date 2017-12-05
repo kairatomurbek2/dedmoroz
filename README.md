@@ -13,6 +13,7 @@ $ sudo apt-get install libmysqlclient-dev
 ```
 $ mkdir dedmoroz
 $ cd dedmoroz
+$ git clone https://github.com/kairatomurbek2/dedmoroz.git
 $ virtualenv --no-site-packages --distribute -p /usr/bin/python3 venv
 $ source ./venv/bin/activate
 $ pip install -r req.txt
