@@ -33,11 +33,21 @@
                         <div class="uk-card-media-top uk-text-center uk-padding">
                             <div>
                                 <h3>Стать дедом морозом !</h3>
-                                {% if letter.status != 'DC' %}
-                                    <p>Заполните форму для обратной связи, мы обязательно перезвоним Вам и расскажем
+                                {% if letter.status == 'DC' %}
+                                    <div class="border uk-padding">
+                                        <h3>Спасибо !</h3>
+                                        <p>К счастью, это письмо уже нашло своего деда мороза! Выберите, пожалуйста,
+                                            другое письмо. Благодарим.</p>
+                                    </div>
+                                    {% elif letter.status == 'MD' %}
+                                    <div class="border uk-padding">
+                                        <h3>Спасибо !</h3>
+                                        <p>Данное письмо ожидает подтверждение! Выберите, пожалуйста,
+                                            другое письмо. Благодарим.</p>
+                                    </div>
+                                {% else %}
+                                     <p>Заполните форму для обратной связи, мы обязательно перезвоним Вам и расскажем
                                         детали</p>
-                                {% endif %}
-                                {% if letter.status != 'DC' %}
                                     <form action="{% url 'create_santa' letter.id %}" method="post">
                                         {% csrf_token %}
                                         <fieldset class="uk-fieldset">
@@ -53,12 +63,6 @@
 
                                         </fieldset>
                                     </form>
-                                {% else %}
-                                    <div class="border uk-padding">
-                                        <h3>Спасибо !</h3>
-                                        <p>К счастью, это письмо уже нашло своего деда мороза! Выберите, пожалуйста,
-                                            другое письмо. Благодарим.</p>
-                                    </div>
                                 {% endif %}
                             </div>
                         </div>
