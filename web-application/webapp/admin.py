@@ -6,7 +6,7 @@ from webapp.models import Letter, Organization, SantaClaus
 class SantaClausAdmin(admin.ModelAdmin):
     list_per_page = 50
     search_fields = ['name', 'phone']
-    list_display = ['name', 'phone']
+    list_display = ['name', 'phone', 'comments']
     readonly_fields = ('name', 'phone')
 
 
