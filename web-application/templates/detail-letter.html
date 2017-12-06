@@ -10,7 +10,7 @@
     <meta property="og:description"
           content="На этом сайте собраны письма ребят из различных детских домов, школ-интернатов и центров Кыргызстана, и Вы можете выбрать одно или несколько из них."/>
     {% if letter.image %}
-        {% thumbnail letter.image "790x530" as im %}
+        {% thumbnail letter.image "400x400" as im %}
             <meta property="og:image"
                   content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{{ im.url }}"/>
         {% endthumbnail %}
