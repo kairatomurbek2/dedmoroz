@@ -18,9 +18,9 @@ class SantaClausInline(admin.TabularInline):
 
 class LetterAdmin(admin.ModelAdmin):
     list_per_page = 50
-    list_display = ['image_tag', 'status']
+    list_display = ['image_tag', 'status', 'organization']
     inlines = [SantaClausInline]
-    list_filter = ['status']
+    list_filter = ['status', 'organization']
 
 
 admin.site.register(Letter, LetterAdmin)
