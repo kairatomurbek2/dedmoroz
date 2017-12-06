@@ -10,7 +10,7 @@ class CreateSantaClausForm(forms.ModelForm):
                             widget=forms.NumberInput(attrs={'placeholder': _("Введите свой номер телефона")}))
     comments_by_santa = forms.CharField(label=_('Комментарий'), required=False,
                                         widget=forms.Textarea(
-                                            attrs={'placeholder': _('Это поле не обязательно для заполнение')}))
+                                            attrs={'placeholder': _('Это поле не обязательно для заполнения')}))
 
     class Meta:
         model = SantaClaus
