@@ -39,14 +39,14 @@
                                         <p>К счастью, это письмо уже нашло своего деда мороза! Выберите, пожалуйста,
                                             другое письмо. Благодарим.</p>
                                     </div>
-                                    {% elif letter.status == 'MD' %}
+                                {% elif letter.status == 'MD' %}
                                     <div class="border uk-padding">
                                         <h3>Спасибо !</h3>
                                         <p>Данное письмо ожидает подтверждение! Выберите, пожалуйста,
                                             другое письмо. Благодарим.</p>
                                     </div>
                                 {% else %}
-                                     <p>Заполните форму для обратной связи, мы обязательно перезвоним Вам и расскажем
+                                    <p>Заполните форму для обратной связи, мы обязательно перезвоним Вам и расскажем
                                         детали</p>
                                     <form action="{% url 'create_santa' letter.id %}" method="post">
                                         {% csrf_token %}
@@ -56,6 +56,13 @@
                                             </div>
                                             <div class="uk-margin">
                                                 {{ form.phone|add_class:"uk-input" }}
+                                            </div>
+                                            <div class="uk-margin">
+                                                <label class="uk-form-label"
+                                                       for="{{ form.comments_by_santa.id_for_label }}">{{ form.comments_by_santa.label }}</label>
+                                                <div class="uk-form-controls">
+                                                    {{ form.comments_by_santa|add_class:"uk-textarea" }}
+                                                </div>
                                             </div>
                                             <div class="uk-margin">
                                                 <button class="uk-button-default uk-button">Стать Дедом Морозом</button>

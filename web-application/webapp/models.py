@@ -54,7 +54,8 @@ class SantaClaus(models.Model):
     letter = models.ForeignKey(Letter, related_name='santa_clauses')
     name = models.CharField(max_length=250, verbose_name=_('Имя'))
     phone = models.CharField(max_length=20, verbose_name=_('Номер телефона'))
-    comments = models.TextField(verbose_name=_('Коментарий'), blank=True, null=True)
+    comments = models.TextField(verbose_name=_('Комментарий'), blank=True, null=True)
+    comments_by_santa = models.TextField(verbose_name=_('Комментарий от Деда Мороза'), blank=True, null=True)
 
     def __str__(self):
         return self.name
