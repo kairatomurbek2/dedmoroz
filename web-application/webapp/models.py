@@ -1,5 +1,7 @@
+from django.core.files.base import ContentFile
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from sorl.thumbnail import get_thumbnail
 
 ACTIVE = 'AC'
 MODERATION = 'MD'
@@ -35,6 +37,13 @@ class Letter(models.Model):
 
     image_tag.short_description = _('Предварительный просмотр')
     image_tag.allow_tags = True
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            super(Letter, self).save(*args, **kwargs)
+            resized = get_thumbnail(self.image, "790x530")
+            self.image.save(resized.name, ContentFile(resized.read()), True)
+        super(Letter, self).save(*args, **kwargs)
 
     class Meta:
         verbose_name = _("Письмо")
