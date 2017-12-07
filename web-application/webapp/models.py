@@ -45,6 +45,18 @@ class Letter(models.Model):
             self.image.save(resized.name, ContentFile(resized.read()), True)
         super(Letter, self).save(*args, **kwargs)
 
+    def get_next(self):
+        next = Letter.objects.filter(id__gt=self.id)
+        if next:
+            return next.first()
+        return False
+
+    def get_prev(self):
+        prev = Letter.objects.filter(id__lt=self.id).order_by('-id')
+        if prev:
+            return prev.first()
+        return False
+
     class Meta:
         verbose_name = _("Письмо")
         verbose_name_plural = _("Письма")
