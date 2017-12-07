@@ -8,7 +8,7 @@ class SantaClausAdmin(admin.ModelAdmin):
     def letter(self):
         html = ""
         for obj in Letter.objects.filter(santa_clauses=self.id):
-            html += '<p><a href="%s"><img src="%s" width="200"/></a></p>' % (obj.id, obj.image.url)
+            html += '<p><a href="/admin/webapp/letter/%s/change"><img src="%s" width="200"/></a></p>' % (obj.id, obj.image.url)
         return html
     letter.allow_tags = True
 
