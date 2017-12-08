@@ -26,13 +26,25 @@
             <div class="uk-grid uk-child-width-1-2">
                 {% if letter.get_prev %}
                     <div class="uk-text-left">
-                        <a href="{% url 'letter_detail' letter.get_prev.id %}" uk-icon="icon: arrow-left; ratio: 2"></a>
+                        <a href="{% url 'letter_detail' letter.get_prev.id %}"
+                           style="
+                                   background: url({% static 'img/png/arrow-btn.png' %}) 0 0 no-repeat;
+                                   width: 100px;
+                                   height: 55px;
+                                   display: inline-block;
+                                   background-size: 100px;">
+                        </a>
                     </div>
                 {% endif %}
                 {% if letter.get_next %}
                     <div class="uk-text-right">
                         <a href="{% url 'letter_detail' letter.get_next.id %}"
-                           uk-icon="icon: arrow-right; ratio: 2"></a>
+                           style="
+                                   background: url({% static 'img/png/arrow-btn.png' %}) bottom center no-repeat;
+                                   width: 100px;
+                                   height: 55px;
+                                   display: inline-block;
+                                   background-size: 100px;"></a>
                     </div>
                 {% endif %}
             </div>
