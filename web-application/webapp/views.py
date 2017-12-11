@@ -6,13 +6,20 @@ from django.views.generic import CreateView
 from django.views.generic import ListView
 from django.views.generic import TemplateView
 from webapp import forms
+from webapp.filters import StatusFilter
 from webapp.models import Letter, SantaClaus, MODERATION
 
 
 class HomeView(ListView):
     template_name = 'home.html'
     model = Letter
-    ordering = '-pk'
+    filterset_class = StatusFilter
+
+    def get_context_data(self, **kwargs):
+        context = super(HomeView, self).get_context_data(**kwargs)
+        status_filter = self.filterset_class(self.request.GET, queryset=self.model.objects.all().order_by('-pk'))
+        context['status_filter'] = status_filter
+        return context
 
 
 class DetailLetterView(TemplateView):

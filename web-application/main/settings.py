@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'sorl.thumbnail',
     'dj_pagination',
     'widget_tweaks',
+    'django_filters',
     'webapp'
 ]
 
