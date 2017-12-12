@@ -45,24 +45,24 @@
                      data-counter=""
                      style="text-align: center"></div>
             </div>
-            <div class="uk-grid uk-flex-middle uk-child-width-1-3@m uk-margin-large-top" uk-grid>
-                <div class="uk-text-center">
+            <div class="uk-grid uk-grid-small uk-flex-middle  uk-margin-large-top" uk-grid>
+                <div class="uk-text-center uk-width-auto@m">
                     <div>
                         <img src="{% static 'img/png/icons.png' %}" alt="">
                     </div>
                 </div>
-                <div class="uk-text-center ">
+                <div class="uk-text-center uk-width-expand@m">
                     <div class="uk-card uk-width-1-1 uk-card-default all-message  ">
                         <p>Всего писем: <span>{{ object_list.count }}</span></p>
                         Сортировка по:
-                        <form action="" name="status_filter" method="get">
-                            <button type="submit" value="AC" name="status">Свободным</button>
-                            <button type="submit" value="MD" name="status">Ожидающим подтверждения</button>
-                            <button type="submit" value="DC" name="status">Найденным</button>
+                        <form action="" name="status_filter" method="get" style="padding-bottom: 30px;">
+                            <button type="submit" value="AC" name="status" style="background-color: #fff; cursor: pointer">Свободным</button>
+                            <button type="submit" value="MD" name="status" style="background-color: #fff; cursor: pointer">Ожидающим подтверждения</button>
+                            <button type="submit" value="DC" name="status" style="background-color: #fff; cursor: pointer">Найденным</button>
                         </form>
                     </div>
                 </div>
-                <div class="uk-text-center">
+                <div class="uk-text-center uk-width-auto@m">
                     <div>
                         <img src="{% static 'img/png/icons.png' %}" alt="">
                     </div>
