@@ -28,6 +28,9 @@ class Organization(models.Model):
 
 
 class Letter(models.Model):
+    name = models.CharField(max_length=150, verbose_name=_('ФИО'))
+    birthday = models.DateField(null=True, blank=True)
+    grade = models.IntegerField(verbose_name=_('Класс'), blank=True, null=True)
     image = models.ImageField(verbose_name=_("Письмо"), upload_to='images')
     status = models.CharField(choices=STATUS_CHOICES, max_length=2, default='AC', verbose_name=_('Статус'))
     organization = models.ForeignKey(Organization, related_name='letters', blank=True, null=True)
