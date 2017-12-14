@@ -30,6 +30,7 @@ class Organization(models.Model):
 class Letter(models.Model):
     name = models.CharField(max_length=150, verbose_name=_('ФИО'))
     birthday = models.DateField(null=True, blank=True)
+    age = models.IntegerField(blank=True, null=True, verbose_name=_('Возраст'))
     grade = models.IntegerField(verbose_name=_('Класс'), blank=True, null=True)
     image = models.ImageField(verbose_name=_("Письмо"), upload_to='images')
     status = models.CharField(choices=STATUS_CHOICES, max_length=2, default='AC', verbose_name=_('Статус'))
