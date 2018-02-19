@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'dj_pagination',
     'widget_tweaks',
     'django_filters',
+    'ckeditor',
     'webapp'
 ]
 
@@ -134,3 +135,31 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # SORL THUMBNAIL
 THUMBNAIL_COLORSPACE = None
 THUMBNAIL_PRESERVE_FORMAT = True
+
+# CKEDITOR
+CKEDITOR_UPLOAD_SLUGIFY_FILENAME = False
+CKEDITOR_JQUERY_URL = 'http://libs.baidu.com/jquery/2.0.3/jquery.min.js'
+CKEDITOR_IMAGE_BACKEND = "pillow"
+CKEDITOR_UPLOAD_PATH = "media/"
+
+# config ckeditor
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': (
+            ['div', 'Source', '-', 'Save', 'NewPage', 'Preview', '-', 'Templates'],
+            ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Print', 'SpellChecker', 'Scayt'],
+            ['Undo', 'Redo', '-', 'Find', 'Replace', '-', 'SelectAll', 'RemoveFormat'],
+            ['Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField'],
+            ['Bold', 'Italic', 'Underline', 'Strike', '-', 'Subscript', 'Superscript'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', 'Blockquote'],
+            ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Link', 'Unlink', 'Anchor'],
+            ['Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak'],
+            ['Styles', 'Format', 'Font', 'FontSize'],
+            ['TextColor', 'BGColor'],
+            ['Maximize', 'ShowBlocks', '-', 'About', 'pbckcode'],
+        ),
+    }
+}
+
+CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'

@@ -7,7 +7,7 @@ from django.views.generic import ListView
 from django.views.generic import TemplateView
 from webapp import forms
 from webapp.filters import StatusFilter
-from webapp.models import Letter, SantaClaus, MODERATION
+from webapp.models import Letter, SantaClaus, MODERATION, HomeContent
 
 
 class HomeView(ListView):
@@ -19,6 +19,7 @@ class HomeView(ListView):
         context = super(HomeView, self).get_context_data(**kwargs)
         status_filter = self.filterset_class(self.request.GET, queryset=self.model.objects.all().order_by('-pk'))
         context['status_filter'] = status_filter
+        context['content'] = HomeContent.objects.all()[0]
         return context
 
 

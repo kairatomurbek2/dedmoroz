@@ -1,7 +1,9 @@
+from ckeditor.fields import RichTextField
 from django.core.files.base import ContentFile
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from sorl.thumbnail import get_thumbnail
+from ckeditor_uploader.fields import RichTextUploadingField
 
 ACTIVE = 'AC'
 MODERATION = 'MD'
@@ -78,3 +80,15 @@ class SantaClaus(models.Model):
     class Meta:
         verbose_name = _("Дед Мороз")
         verbose_name_plural = _("Дед Морозы")
+
+
+class HomeContent(models.Model):
+    title = models.CharField(verbose_name=_('Заголовок'), max_length=100)
+    content = RichTextUploadingField('awesome_ckeditor')
+
+    class Meta:
+        verbose_name = _('Контент на главной')
+        verbose_name_plural = _('Контенты на главной')
+
+    def __str__(self):
+        return self.title

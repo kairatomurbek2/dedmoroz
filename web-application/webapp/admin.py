@@ -1,6 +1,8 @@
 from django.contrib import admin
+from django import forms
+from ckeditor.widgets import CKEditorWidget
 
-from webapp.models import Letter, Organization, SantaClaus
+from webapp.models import Letter, Organization, SantaClaus, HomeContent
 
 
 class SantaClausAdmin(admin.ModelAdmin):
@@ -8,8 +10,10 @@ class SantaClausAdmin(admin.ModelAdmin):
     def letter(self):
         html = ""
         for obj in Letter.objects.filter(santa_clauses=self.id):
-            html += '<p><a href="/admin/webapp/letter/%s/change"><img src="%s" width="200"/></a></p>' % (obj.id, obj.image.url)
+            html += '<p><a href="/admin/webapp/letter/%s/change"><img src="%s" width="200"/></a></p>' % (
+                obj.id, obj.image.url)
         return html
+
     letter.allow_tags = True
 
     list_per_page = 50
@@ -32,6 +36,26 @@ class LetterAdmin(admin.ModelAdmin):
     list_filter = ['status', 'organization', 'age', 'grade']
 
 
+class HomeContentForm(forms.ModelForm):
+    content = forms.CharField(widget=CKEditorWidget())
+
+    class Meta:
+        model = HomeContent
+        fields = ['title', 'content']
+
+
+class HomeContentAdmin(admin.ModelAdmin):
+    form = HomeContentForm
+
+    def has_add_permission(self, request):
+        num_objects = self.model.objects.count()
+        if num_objects >=1:
+            return False
+        else:
+            return True
+
+
 admin.site.register(Letter, LetterAdmin)
 admin.site.register(Organization)
 admin.site.register(SantaClaus, SantaClausAdmin)
+admin.site.register(HomeContent, HomeContentAdmin)

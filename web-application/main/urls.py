@@ -8,6 +8,7 @@ urlpatterns = [
                   url(r'^jet/', include('jet.urls', 'jet')),
                   url(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),
                   url(r'^admin/', admin.site.urls),
+                  url(r'^ckeditor/', include('ckeditor_uploader.urls')),
                   url(r'^i18n/', include('django.conf.urls.i18n')),
                   url(r'^', include('webapp.urls')),
                   url(r'^robots.txt$', TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
