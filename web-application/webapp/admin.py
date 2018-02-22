@@ -2,7 +2,7 @@ from django.contrib import admin
 from django import forms
 from ckeditor.widgets import CKEditorWidget
 
-from webapp.models import Letter, Organization, SantaClaus, HomeContent
+from webapp.models import Letter, Organization, SantaClaus, HomeContent, HomeContentImages
 
 
 class SantaClausAdmin(admin.ModelAdmin):
@@ -44,12 +44,19 @@ class HomeContentForm(forms.ModelForm):
         fields = ['title', 'content']
 
 
+class ImagesInline(admin.TabularInline):
+    model = HomeContentImages
+    fields = ['image']
+    extra = 2
+
+
 class HomeContentAdmin(admin.ModelAdmin):
     form = HomeContentForm
+    inlines = [ImagesInline]
 
     def has_add_permission(self, request):
         num_objects = self.model.objects.count()
-        if num_objects >=1:
+        if num_objects >= 1:
             return False
         else:
             return True
@@ -59,3 +66,4 @@ admin.site.register(Letter, LetterAdmin)
 admin.site.register(Organization)
 admin.site.register(SantaClaus, SantaClausAdmin)
 admin.site.register(HomeContent, HomeContentAdmin)
+admin.site.register(HomeContentImages)

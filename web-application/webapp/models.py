@@ -92,3 +92,12 @@ class HomeContent(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class HomeContentImages(models.Model):
+    home_content = models.ForeignKey(HomeContent, related_name='home_content_images')
+    image = models.ImageField(verbose_name=_("Изображение"), upload_to='contents')
+
+    class Meta:
+        verbose_name = _('Изображение')
+        verbose_name_plural = _('изображения')

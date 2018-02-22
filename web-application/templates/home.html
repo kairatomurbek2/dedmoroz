@@ -19,6 +19,9 @@
             {% include 'messages.html' %}
             <h1>{{ content.title }}</h1>
            {{ content.content|safe }}
+            {% for img in content.home_content_images.all %}
+                <img src="{{ img.image.url }}" alt="{{ content }}">
+            {% endfor %}
             <div class="subscribe uk-margin-large-top">
                 <p class="uk-text-center">
                     Рассказать друзьям
