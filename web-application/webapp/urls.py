@@ -1,8 +1,8 @@
-from django.conf.urls import url
+from django.urls import path
 from webapp.views import HomeView, DetailLetterView, CreateSantaClausView
 
 urlpatterns = [
-    url(r'^$', HomeView.as_view(), name='home'),
-    url(r'^letters/(?P<pk>\d+)/$', DetailLetterView.as_view(), name="letter_detail"),
-    url(r'^letters/(?P<pk>\d+)/create/$', CreateSantaClausView.as_view(), name="create_santa"),
+    path(r'', HomeView.as_view(), name='home'),
+    path('letters/<int:id>/', DetailLetterView.as_view(), name="letter_detail"),
+    path('^letters/<int:id>/create/$', CreateSantaClausView.as_view(), name="create_santa"),
 ]

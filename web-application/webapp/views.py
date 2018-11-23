@@ -28,7 +28,7 @@ class DetailLetterView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(DetailLetterView, self).get_context_data(**kwargs)
-        context['letter'] = get_object_or_404(Letter, pk=self.kwargs['pk'])
+        context['letter'] = get_object_or_404(Letter, pk=self.kwargs['id'])
         context['form'] = forms.CreateSantaClausForm
         return context
 
@@ -45,7 +45,7 @@ class CreateSantaClausView(CreateView):
 
     def form_valid(self, form):
         santa = form.save(commit=False)
-        letter = get_object_or_404(Letter, pk=self.kwargs['pk'])
+        letter = get_object_or_404(Letter, pk=self.kwargs['id'])
         santa.letter = letter
         santa.save()
         letter.status = MODERATION
