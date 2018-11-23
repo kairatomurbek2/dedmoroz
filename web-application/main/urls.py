@@ -15,4 +15,6 @@ urlpatterns = [
                   # url(r'^google3180cd19f46996bd.html$',
                   #     TemplateView.as_view(template_name="google3180cd19f46996bd.html",
                   #                          content_type="text/html")),
-              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+              ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_rrot=settings.STATIC_ROOT)
