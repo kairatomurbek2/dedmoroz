@@ -1,4 +1,3 @@
-from ckeditor.fields import RichTextField
 from django.core.files.base import ContentFile
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
@@ -35,7 +34,8 @@ class Letter(models.Model):
     grade = models.IntegerField(verbose_name=_('Класс'), blank=True, null=True)
     image = models.ImageField(verbose_name=_("Письмо"), upload_to='images')
     status = models.CharField(choices=STATUS_CHOICES, max_length=2, default='AC', verbose_name=_('Статус'))
-    organization = models.ForeignKey(Organization, related_name='letters', blank=True, null=True)
+    organization = models.ForeignKey(Organization, related_name='letters', blank=True, null=True,
+                                     on_delete=models.SET_NULL)
 
     def image_tag(self):
         return u'<img src="%s" width="200"/>' % self.image.url
@@ -68,7 +68,7 @@ class Letter(models.Model):
 
 
 class SantaClaus(models.Model):
-    letter = models.ForeignKey(Letter, related_name='santa_clauses')
+    letter = models.ForeignKey(Letter, related_name='santa_clauses', on_delete=models.CASCADE)
     name = models.CharField(max_length=250, verbose_name=_('Имя'))
     phone = models.CharField(max_length=20, verbose_name=_('Номер телефона'))
     comments = models.TextField(verbose_name=_('Комментарий'), blank=True, null=True)
@@ -95,7 +95,7 @@ class HomeContent(models.Model):
 
 
 class HomeContentImages(models.Model):
-    home_content = models.ForeignKey(HomeContent, related_name='home_content_images')
+    home_content = models.ForeignKey(HomeContent, related_name='home_content_images', on_delete=models.CASCADE)
     image = models.ImageField(verbose_name=_("Изображение"), upload_to='contents')
 
     class Meta:

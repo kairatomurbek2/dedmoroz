@@ -12,7 +12,7 @@ urlpatterns = [
                   url(r'^i18n/', include('django.conf.urls.i18n')),
                   url(r'^', include('webapp.urls')),
                   url(r'^robots.txt$', TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
-                  url(r'^google3180cd19f46996bd.html$',
-                      TemplateView.as_view(template_name="google3180cd19f46996bd.html",
-                                           content_type="text/html")),
+                  # url(r'^google3180cd19f46996bd.html$',
+                  #     TemplateView.as_view(template_name="google3180cd19f46996bd.html",
+                  #                          content_type="text/html")),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
