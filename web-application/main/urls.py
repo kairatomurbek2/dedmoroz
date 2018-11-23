@@ -1,17 +1,17 @@
 from django.conf import settings
-from django.conf.urls import url, include
+from django.urls import path, include
 from django.contrib import admin
 from django.conf.urls.static import static
 from django.views.generic import TemplateView
 
 urlpatterns = [
-                  url(r'^jet/', include('jet.urls', 'jet')),
-                  url(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),
-                  url(r'^admin/', admin.site.urls),
-                  url(r'^ckeditor/', include('ckeditor_uploader.urls')),
-                  url(r'^i18n/', include('django.conf.urls.i18n')),
-                  url(r'^', include('webapp.urls')),
-                  url(r'^robots.txt$', TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
+                  path('jet/', include('jet.urls', 'jet')),
+                  path('jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),
+                  path('admin/', admin.site.urls),
+                  path('ckeditor/', include('ckeditor_uploader.urls')),
+                  path('i18n/', include('django.conf.urls.i18n')),
+                  path('', include('webapp.urls')),
+                  path('robots.txt$', TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
                   # url(r'^google3180cd19f46996bd.html$',
                   #     TemplateView.as_view(template_name="google3180cd19f46996bd.html",
                   #                          content_type="text/html")),
