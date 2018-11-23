@@ -1,3 +1,5 @@
+import datetime
+
 from django.utils.translation import ugettext_lazy as _
 from django.contrib import messages
 from django.shortcuts import get_object_or_404
@@ -17,7 +19,10 @@ class HomeView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(HomeView, self).get_context_data(**kwargs)
-        status_filter = self.filterset_class(self.request.GET, queryset=self.model.objects.all().order_by('-pk'))
+        now = datetime.datetime.now()
+        status_filter = self.filterset_class(self.request.GET,
+                                             queryset=self.model.objects.filter(
+                                                 date_create__year__gte=now.year).order_by('-pk'))
         context['status_filter'] = status_filter
         context['content'] = HomeContent.objects.all()[0]
         return context

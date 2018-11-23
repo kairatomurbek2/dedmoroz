@@ -6,19 +6,9 @@ from webapp.models import Letter, Organization, SantaClaus, HomeContent, HomeCon
 
 
 class SantaClausAdmin(admin.ModelAdmin):
-
-    def letter(self):
-        html = ""
-        for obj in Letter.objects.filter(santa_clauses=self.id):
-            html += '<p><a href="/admin/webapp/letter/%s/change"><img src="%s" width="200"/></a></p>' % (
-                obj.id, obj.image.url)
-        return html
-
-    letter.allow_tags = True
-
     list_per_page = 50
     search_fields = ['name', 'phone']
-    list_display = ['name', 'phone', 'comments', 'comments_by_santa', letter]
+    list_display = ['name', 'phone', 'comments', 'comments_by_santa']
     readonly_fields = ('name', 'phone', 'comments_by_santa')
 
 
@@ -30,10 +20,11 @@ class SantaClausInline(admin.TabularInline):
 
 class LetterAdmin(admin.ModelAdmin):
     list_per_page = 50
-    list_display = ['image_tag', 'name', 'organization', 'age', 'status']
+    list_display = ['name', 'organization', 'age', 'status']
     search_fields = ['name']
     inlines = [SantaClausInline]
     list_filter = ['status', 'organization', 'age', 'grade']
+    readonly_fields = ('date_create', )
 
 
 class HomeContentForm(forms.ModelForm):

@@ -1,5 +1,6 @@
 from django.core.files.base import ContentFile
 from django.db import models
+from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 from sorl.thumbnail import get_thumbnail
 from ckeditor_uploader.fields import RichTextUploadingField
@@ -36,12 +37,7 @@ class Letter(models.Model):
     status = models.CharField(choices=STATUS_CHOICES, max_length=2, default='AC', verbose_name=_('Статус'))
     organization = models.ForeignKey(Organization, related_name='letters', blank=True, null=True,
                                      on_delete=models.SET_NULL)
-
-    def image_tag(self):
-        return u'<img src="%s" width="200"/>' % self.image.url
-
-    image_tag.short_description = _('Предварительный просмотр')
-    image_tag.allow_tags = True
+    date_create = models.DateField(verbose_name=_('Дата создании'), default=timezone.now)
 
     def save(self, *args, **kwargs):
         if not self.id:

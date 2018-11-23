@@ -38,7 +38,7 @@
                 </div>
                 <div class="uk-text-center uk-width-expand@m">
                     <div class="uk-card uk-width-1-1 uk-card-default all-message  ">
-                        <p>Всего писем: <span>{{ object_list.count }}</span></p>
+                        <p>Всего писем за этот год: <span>{{ status_filter.qs.count }}</span></p>
                         Сортировка по:
                         <form action="" name="status_filter" method="get" style="padding-bottom: 30px;">
                             <button type="submit" value="AC" name="status"
