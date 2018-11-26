@@ -14,7 +14,7 @@ class SantaClausAdmin(admin.ModelAdmin):
 
 class SantaClausInline(admin.TabularInline):
     model = SantaClaus
-    fields = ['name', 'phone']
+    fields = ['name', 'phone', 'comments', 'comments_by_santa']
     extra = 0
 
 
