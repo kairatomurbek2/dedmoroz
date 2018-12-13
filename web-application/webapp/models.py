@@ -8,11 +8,13 @@ from ckeditor_uploader.fields import RichTextUploadingField
 ACTIVE = 'AC'
 MODERATION = 'MD'
 DECLINE = 'DC'
+ACCEPTED = 'AD'
 
 STATUS_CHOICES = (
     (ACTIVE, _('Свободен')),
     (MODERATION, _('На расмотрение')),
     (DECLINE, _('Забронирован')),
+    (ACCEPTED, _('Принят')),
 )
 
 
